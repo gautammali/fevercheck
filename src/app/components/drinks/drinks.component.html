@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="container-fluid div-top">
+  <div class="form-control">
+    <form [formGroup]="drinksForm" (ngSubmit)="myDrinks()">
+      <h2>Add your drinks here</h2>
+      <mat-form-field>
+        <input
+          formControlName="drink"
+          name="drink"
+          matInput
+          type="text"
+          appearance="fill"
+          placeholder="add your drink"
+        />
+      </mat-form-field>
+      <button mat-raised-button color="accent">submit</button>
+    </form>
+  </div>
+</div>
+<div class="sec-con">
+  <app-drinks-list></app-drinks-list>
+</div>
+<app-footer></app-footer>

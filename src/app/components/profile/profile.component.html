@@ -1,0 +1,55 @@
+<!-- nav bar -->
+<app-header></app-header>
+<!-- nav bar ens here -->
+
+<!-- profile page -->
+<aside class="profile-card">
+  <header>
+    <h4>{{ now | date: "medium" }}</h4>
+    <h3>{{dbDetails?.role}}</h3>
+    <!-- here’s the avatar -->
+    <a target="_blank" href="#">
+      <img src="{{ userDetails?.photoUrl }}" class="hoverZoomLink" />
+    </a>
+
+    <!-- the username -->
+    <h1>{{ userDetails?.name | titlecase }}</h1>
+
+    <!-- and role or location -->
+    <h2>{{ userDetails?.email }}</h2>
+  </header>
+
+  <!-- bit of a bio; who are you? -->
+  <div class="profile-bio">
+    <p>
+      Keep your face always toward the sunshine, and shadows will fall behind
+      you
+    </p>
+  </div>
+
+  <!-- some social links to show off -->
+  <ul class="profile-social-links">
+    <li>
+      <a target="_blank" href="https://www.facebook.com/creativedonut">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://twitter.com/dropyourbass">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://github.com/vipulsaxena">
+        <i class="fa fa-github"></i>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://www.behance.net/vipulsaxena">
+        <i class="fa fa-behance"></i>
+      </a>
+    </li>
+  </ul>
+</aside>
+<!-- profile page and here -->
+<app-footer></app-footer>

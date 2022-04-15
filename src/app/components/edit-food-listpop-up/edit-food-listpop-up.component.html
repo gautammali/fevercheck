@@ -1,0 +1,18 @@
+<div class="container-fluid div-top">
+  <div class="form-control">
+    <form [formGroup]="editFrom" (ngSubmit)="myDrinks()">
+      <h2>Add your drinks here</h2>
+      <mat-form-field>
+        <input
+          formControlName="drink"
+          name="drink"
+          matInput
+          type="text"
+          appearance="fill"
+          placeholder="add your drink"
+        />
+      </mat-form-field>
+      <button mat-raised-button color="accent">update</button>
+    </form>
+  </div>
+</div>
