@@ -1,0 +1,110 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title> edit you details </mat-card-title>
+    <mat-card-content>
+      <div class="form-container">
+        <form [formGroup]="userDetail" (ngSubmit)="usersData()">
+          <mat-form-field>
+            <input
+              matInput
+              formControlName="date"
+              [matDatepicker]="datepicker"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="datepicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #datepicker></mat-datepicker>
+          </mat-form-field>
+          <br />
+          <span class="error-msg" *ngIf="date?.invalid && date?.touched"
+            >please select date*</span
+          >
+          <br />
+          <mat-radio-group
+            formControlName="gender"
+            aria-label="select gender"
+            name="gender"
+            required
+          >
+            <h3>Gender</h3>
+            <mat-radio-button class="radio-btn" value="male">
+              male
+            </mat-radio-button>
+            <mat-radio-button class="ms-2" value="female">
+              female
+            </mat-radio-button>
+            <span class="error-msg" *ngIf="gender?.invalid && gender?.touched">
+              gender required*
+            </span>
+          </mat-radio-group>
+          <br />
+
+          <br />
+          <br />
+          <mat-form-field>
+            <mat-select formControlName="fever" name="fever">
+              <mat-option required>-- fever --</mat-option>
+              <mat-option value="yes">Yes</mat-option>
+              <mat-option value="no">No</mat-option>
+            </mat-select>
+            <mat-label>fever</mat-label>
+            <br />
+          </mat-form-field>
+          <span class="error-msg" *ngIf="fever?.invalid && fever?.touched"
+            >please select*</span
+          >
+          <br />
+          <!-- <div class="item-container" *ngFor="let food of foods"> -->
+          <div class="item-container" *ngFor="let food of foods">
+            <mat-checkbox
+              (change)="changeIncheckBox($event, food.name)"
+              [value]="food.name"
+              [checked]="food.checked"
+              >{{ food.name }}</mat-checkbox
+            >
+            <br />
+          </div>
+          <div class="mt-2">
+            <input
+              #fileInput
+              type="file"
+              id="uploadFile"
+              (change)="uploadFileEvt($event)"
+              name="image"
+              multiple
+              accept="image/*"
+            />
+            <div [className]="display ? 'show-btn' : 'btn-hide'">
+              <img class="w-25 p-3 img" [src]="imgUrl" alt="" />
+              <button
+                type="button"
+                class="btn btn-sm btn-success"
+                (click)="deleteImage()"
+                (click)="fileInput.value=''"
+              >
+                delete
+              </button>
+              <button
+                type="button"
+                class="mx-2 btn btn-sm btn-success"
+                (click)="showImage()"
+              >
+                view
+              </button>
+            </div>
+          </div>
+          <span
+            class="error-msg"
+            *ngIf="
+              userDetail.get('image')?.invalid &&
+              userDetail.get('image')?.touched
+            "
+            >required*</span
+          >
+          <button mat-raised-button class="my-2" color="accent">submit</button>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

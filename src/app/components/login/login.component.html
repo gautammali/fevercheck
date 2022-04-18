@@ -1,0 +1,40 @@
+<app-header></app-header>
+<mat-card class="login-card">
+    <mat-card-title>
+      <h1 class="login-title">Login</h1>
+    </mat-card-title>
+    <mat-card-content>
+      <form action="">
+        <div class="form-container">
+          <mat-form-field class="login">
+            <input matInput type="email" placeholder="pat@example.com" required />
+          </mat-form-field>
+          <mat-form-field class="login">
+            <input matInput type="password" placeholder="password" required />
+          </mat-form-field>
+          <div class="btn-box">
+            <button mat-raised-button class="login-btn" color="primary">
+              login
+            </button>
+            <a
+              mat-raised-button
+              (click)=" googleSignIn()"
+              class="login-btn-google"
+              color="primary"
+            >
+              <mat-icon aria-hidden="false" aria-label="">
+                <img
+                  mat-card-image
+                  src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
+                />
+              </mat-icon>
+              signin via Google
+            </a>
+          </div>
+        </div>
+        <a class="forgot-pass" href="#">forgot password!</a>
+      </form>
+    </mat-card-content>
+</mat-card>
+
+<app-footer></app-footer>
